@@ -3,9 +3,11 @@
 [![Link](https://img.shields.io/badge/Microsoft_Outlook-0078D4?style=for-the-badge&logo=microsoft-outlook&logoColor=white)](https://www.linkedin.com/in/natan-andrade-1bbb9817b) [![Email](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:natan07lima@outlook.com) [![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/invites/contact/?i=vc7rdOOns7oj&utm_content=klr2kj)
 
 
-![4ndrad GitHub stats](https://github-readme-stats.vercel.app/api?username=4ndrad&show_icons=true&theme=tokyonight)
-
-[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=4ndrad&layout=compact)](https://github.com/4ndrad/github-readme-stats)
+<div align="center">
+  <a href="https://github.com/4ndrad">
+  <img height="180em" src="https://github-readme-stats.vercel.app/api?username=4ndrad&show_icons=true&theme=dark&include_all_commits=true&count_private=true"/>
+  <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=4ndrad&layout=compact&langs_count=7&theme=dark"/>
+</div>
 
 
 ## Tecnologias que eu tenho conhecimento
@@ -22,4 +24,29 @@
 </div>
 
   
- 
+ name: Generate Datas
+
+on:
+  schedule: # execute every 12 hours
+    - cron: "* */12 * * *"
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Jobs to update datas
+    runs-on: ubuntu-latest
+    steps:
+      # Snake Animation
+      - uses: Platane/snk@master
+        id: snake-gif
+        with:
+          github_user_name: 4ndrad
+          svg_out_path: dist/github-contribution-grid-snake.svg
+
+      - uses: crazy-max/ghaction-github-pages@v2.1.3
+        with:
+          target_branch: output
+          build_dir: dist
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  
